@@ -35,7 +35,7 @@ data "aws_subnets" "public" {
 
 # EKS Cluster
 resource "aws_eks_cluster" "example" {
-  name     = "react-app-Cluster" # This name can be changed
+  name     = "python-app-cluster" # This name can be changed
   role_arn = aws_iam_role.example.arn
 
   vpc_config {
