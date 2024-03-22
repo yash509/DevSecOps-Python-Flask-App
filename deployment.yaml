@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calculator-deployment
+spec:
+  replicas: 2  # Number of desired replicas
+  selector:
+    matchLabels:
+      app: simple-calculator
+  template:
+    metadata:
+      labels:
+        app: simple-calculator
+    spec:
+      containers:
+      - name: simple-calculator
+        image: yash5090/simplecalculator
+        ports:
+        - containerPort: 5000
