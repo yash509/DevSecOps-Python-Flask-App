@@ -1,4 +1,4 @@
-# DevSecOps-Py-Flask-App
+# DevSecOps-Python-Flask-App
 Developed a Calculator using Flask in Python
 
 <div align="center">
