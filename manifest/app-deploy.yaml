@@ -1,0 +1,21 @@
+# tetris-deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calculator-deployment
+spec:
+  replicas: 2 # You can adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: py-calc-app
+  template:
+    metadata:
+      labels:
+        app: py-calc-app
+    spec:
+      containers:
+        - name: py-calc-app
+          image: yash5090/py-calc-app # Replace with the actual image tag
+          ports:
+            - containerPort: 5000 # Replace with the port your Tetris game listens on
