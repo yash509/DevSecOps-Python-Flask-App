@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Checkout from Git') {                        
             steps {                                       
-                git branch: 'main', url: 'https://github.com/yash509/DevSecOps-React-RJG-App.git'
+                git branch: 'main', url: 'https://github.com/yash509/DevSecOps-Python-Flask-App.git'
             }
         }
         stage('Deployments') {
@@ -208,7 +208,7 @@ pipeline {
                 //}
             }
         }
-        stage('Deploy to kubernetes'){
+        stage('Deploy to Kubernetes'){
             steps{
                 script{
                     //dir('K8S') {
@@ -220,6 +220,14 @@ pipeline {
                 }
             }
         }
+         stage('Verify the Kubernetes Deployments') { 
+            steps { 
+                withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8s', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') { 
+                    sh "kubectl get pods " 
+                    sh "kubectl get svc " 
+                } 
+            } 
+        } 
         stage('Deployment Done') {
             steps {
                 echo 'Deployed Succcessfully...'
