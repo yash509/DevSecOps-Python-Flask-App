@@ -6,14 +6,14 @@ spec:
   replicas: 2  # Number of desired replicas
   selector:
     matchLabels:
-      app: simple-calculator
+      app: py-calc-app
   template:
     metadata:
       labels:
-        app: simple-calculator
+        app: py-calc-app
     spec:
       containers:
-      - name: simple-calculator
-        image: yash5090/simplecalculator
+      - name: py-calc-app
+        image: yash5090/py-calc-app:latest
         ports:
         - containerPort: 5000
